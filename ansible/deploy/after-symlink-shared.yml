@@ -8,6 +8,16 @@
   composer:
     command: install
     working_dir: "{{ ansistrano_release_path.stdout }}"
+
+- name: Setup directory permissions for var
+  become: true
+  file:
+    path: '{{ release_logs_path }}'
+    state: directory
+    mode: 0777
+    recurse: true
+    follow: true
+
 - name: Clear the cache
   command: '{{ release_console_path }} cache:clear --no-warmup --env=prod'
 
@@ -36,3 +46,11 @@
   command: './node_modules/.bin/encore production'
   args:
     chdir: '{{ ansistrano_release_path.stdout }}'
+
+- name: Setup directory permissions for cache
+  become: true
+  file:
+    path: '{{ release_cache_path }}'
+    state: directory
+    mode: 0777
+    recurse: true
