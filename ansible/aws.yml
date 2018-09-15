@@ -14,15 +14,15 @@
   tasks:
     - name: Create an instance
       ec2:
-        instance_type: t1.micro
-        image: ami-a15e0db6
+        instance_type: t2.medium
+        image: ami-08be42f18e932d3fb
         wait: yes
-        group: web_access
+        group: mava-security-group
         count: 1
-        key_name: KnpU-Tutorial
+        key_name: ap-southeast-1a
         region: us-east-1
         instance_tags:
-          Name: MooTube instance
+          Name: Price instance
       # Could be useful further to get Public IP, DNS, etc.
       register: ec2
 
