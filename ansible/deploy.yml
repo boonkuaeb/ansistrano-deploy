@@ -3,6 +3,9 @@
 
   vars:
     ansistrano_deploy_to: "/var/www/project"
+    ansistrano_deploy_via: git
+    ansistrano_git_repo: "https://github.com/boonkuaeb/ansistrano-deploy.git"
+    ansistrano_git_branch: master
 
   roles:
     - ansistrano.deploy
