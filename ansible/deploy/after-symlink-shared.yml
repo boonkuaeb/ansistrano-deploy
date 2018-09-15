@@ -3,6 +3,7 @@
   template:
     src: "{{ playbook_dir }}/templates/.env.dist"
     dest: "{{ ansistrano_release_path.stdout }}/.env"
+
 - name : Install Composer dependencies
   composer:
     command: install
@@ -13,6 +14,16 @@
 
 - name: Warm up the cache
   command: '{{ release_console_path }} cache:warmup --env=prod'
+
+- name:  Create DB if not exists
+  command: '{{ release_console_path }} doctrine:database:create --if-not-exists --env=prod'
+  register: create_db_output
+  changed_when: not create_db_output.stdout|search('already exists. Skipped')
+
+- name: Run migrations
+  command: '{{ release_console_path }} doctrine:migrations:migrate --no-interaction --env=prod'
+  register: run_migrations_output
+  changed_when: not run_migrations_output.stdout|search('No migrations to execute')
 
 - name: Install bundle assets
   command: '{{ release_console_path }} assets:install {{ release_web_path }} --symlink --no-debug --env=prod'

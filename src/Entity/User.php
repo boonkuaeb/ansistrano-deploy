@@ -33,6 +33,12 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      */
+    protected $middleName;
+
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $lastName;
 
     /**
@@ -83,6 +89,27 @@ class User extends BaseUser
         $this->lastName = $lastName;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getMiddleName()
+    {
+        return $this->middleName;
+    }
+
+    /**
+     * @param mixed $middleName
+     */
+    public function setMiddleName($middleName): void
+    {
+        $this->middleName = $middleName;
+    }
+
+
+    /**
+     * @param $email
+     * @return mixed
+     */
     public function setEmail($email)
     {
         $this->setUsername($email);
