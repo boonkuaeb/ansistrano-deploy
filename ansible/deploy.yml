@@ -16,6 +16,8 @@
     ansistrano_git_repo: "git@github.com:boonkuaeb/ansistrano-deploy.git"
     ansistrano_git_branch: "{{ git_branch }}"
     ansistrano_git_identity_key_path: "{{ playbook_dir }}/id_rsa"  # ssh-keygen -t rsa -b 4096 -C "youremail@mail.com" -f ansible/id_rsa
+    ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
+
 
   roles:
     - ansistrano.deploy
