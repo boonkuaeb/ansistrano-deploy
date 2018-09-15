@@ -1,0 +1,3 @@
+---
+project_deploy_dir: /var/www/project
+server_document_root: /var/www/project/web

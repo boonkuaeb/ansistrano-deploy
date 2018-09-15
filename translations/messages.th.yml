@@ -1,0 +1,18 @@
+lastName: นามสกุล
+firstName: ชื่อ
+welcome: 'สวัสดีคุณ {username} , ข้อมูลราคาค่าเงินของ BTC, ETH และ LTC แบบเรียวไทม์'
+common_register: สมัครสมาชิก
+common_login: เข้าสู่ระบบ
+'First name': ชื่อ
+'Last name': นามสกุล
+common_logout: ออกจากระบบ
+common_current_price: ราคาปัจจุบัน
+common_history_price: ราคาย้อนหลังเระ
+common_history_price_day: '{part_days} วัน'
+liftable_thing.cat: Cat
+liftable_thing.fat_cat: 'Big Fat Cat'
+liftable_thing.laptop: 'My Laptop'
+liftable_thing.coffee_cup: 'Coffee Cup'
+my_lift: กิจกรรม
+common_switch_lang: เปลื่ยนภาษา
+check_price: ตรวจสอบค่าเงิน

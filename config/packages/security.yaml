@@ -1,0 +1,37 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            http_basic:
+            anonymous: true
+
+            logout: ~
+
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+
+
+            remember_me:
+                secret: '%kernel.secret%'
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/lift, role: ROLE_USER }
+
+    encoders:
+        App\Entity\User: bcrypt
