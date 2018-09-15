@@ -16,7 +16,6 @@
     state: directory
     mode: 0777
     recurse: true
-    follow: true
 
 - name: Clear the cache
   command: '{{ release_console_path }} cache:clear --no-warmup --env=prod'
@@ -47,10 +46,10 @@
   args:
     chdir: '{{ ansistrano_release_path.stdout }}'
 
-- name: Setup directory permissions for cache
+- name: Setup directory permissions for FusBundleRoute
   become: true
   file:
-    path: '{{ release_cache_path }}'
+    path: '{{ release_fos_cache_path }}'
     state: directory
     mode: 0777
     recurse: true
