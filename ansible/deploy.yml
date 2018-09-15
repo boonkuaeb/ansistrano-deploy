@@ -4,11 +4,18 @@
   vars_files:
     - ./vars/vars.yml
 
+  vars_prompt:
+    - name: git_branch
+      prompt: 'Enter a branch to deploy'
+      default: master
+      private: no
+
   vars:
     ansistrano_deploy_to: "{{ project_deploy_dir }}"
     ansistrano_deploy_via: git
-    ansistrano_git_repo: "https://github.com/boonkuaeb/ansistrano-deploy.git"
-    ansistrano_git_branch: master
+    ansistrano_git_repo: "git@github.com:boonkuaeb/ansistrano-deploy.git"
+    ansistrano_git_branch: "{{ git_branch }}"
+    ansistrano_git_identity_key_path: "{{ playbook_dir }}/id_rsa"  # ssh-keygen -t rsa -b 4096 -C "youremail@mail.com" -f ansible/id_rsa
 
   roles:
     - ansistrano.deploy

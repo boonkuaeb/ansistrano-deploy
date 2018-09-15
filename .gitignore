@@ -1,3 +1,5 @@
+ansible/id_rsa
+ansible/id_rsa.pub
 node_modules/*
 public/build/*
 dist/*
