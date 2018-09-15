@@ -1,11 +1,15 @@
 doctrine:
     orm:
-        metadata_cache_driver:
-            type: service
-            id: doctrine.system_cache_provider
-        query_cache_driver:
-            type: service
-            id: doctrine.system_cache_provider
+#        metadata_cache_driver:
+#            type: service
+#            id: doctrine.system_cache_provider
+        metadata_cache_driver: apc
+
+#        query_cache_driver:
+#            type: service
+#            id: doctrine.system_cache_provider
+        query_cache_driver: apc
+
         result_cache_driver:
             type: service
             id: doctrine.result_cache_provider
