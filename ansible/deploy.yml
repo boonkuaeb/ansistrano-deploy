@@ -2,7 +2,9 @@
 - hosts: aws
 
   vars_files:
+    - ./vars/deploy_vault.yml
     - ./vars/vars.yml
+    - ./vars/deploy_vars.yml
 
   vars_prompt:
     - name: git_branch
@@ -18,6 +20,8 @@
     ansistrano_git_identity_key_path: "{{ playbook_dir }}/id_rsa"  # ssh-keygen -t rsa -b 4096 -C "youremail@mail.com" -f ansible/id_rsa
     ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
 
+  tasks:
+    - debug: msg={{ symfony_secret }}
 
   roles:
     - ansistrano.deploy

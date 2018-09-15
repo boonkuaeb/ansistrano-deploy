@@ -1,0 +1,6 @@
+---
+symfony_app_env: "{{ vault_symfony_app_env }}"
+symfony_secret: "{{ vault_symfony_secret }}"
+database_connection_string: "{{ vault_database_connection_string }}"
+mailer_url: "{{ vault_mailer_url }}"
+redis_url: "{{ vault_redis_url }}"
