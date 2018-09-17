@@ -20,4 +20,6 @@ git tag -a tag $versionLabel
 git push origin $versionLabel
 
 echo "{ version: '$versionLabel', git_branch: '$git_branch', git_branch:'$git_branch'  }" >> release_web_version_file_path
+RESULT=$?
 
+exit $RESULT
