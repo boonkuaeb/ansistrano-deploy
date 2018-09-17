@@ -18,6 +18,9 @@
     release_var_path: "{{ ansistrano_release_path.stdout }}/var"
     release_fos_cache_path: "{{ ansistrano_release_path.stdout }}/var/cache/prod/fosJsRouting"
     release_logs_path: "{{ ansistrano_shared_path }}/var/log"
+    release_version: "v1.0.{{ ansistrano_release_version }}"
+    repository_path: "{{ project_deploy_dir }}/repo"
+    release_web_version_file_path: "{{ release_web_path }}/version.json"
 
     ansistrano_deploy_to: "{{ project_deploy_dir }}"
     ansistrano_deploy_via: git
@@ -25,6 +28,7 @@
     ansistrano_git_branch: "{{ git_branch }}"
     ansistrano_git_identity_key_path: "{{ playbook_dir }}/id_rsa"  # ssh-keygen -t rsa -b 4096 -C "youremail@mail.com" -f ansible/id_rsa
     ansistrano_after_symlink_shared_tasks_file: "{{ playbook_dir }}/deploy/after-symlink-shared.yml"
+    ansistrano_before_cleanup_tasks_file: "{{ playbook_dir }}/deploy/before-cleanup-tasks.yaml"
     ansistrano_keep_releases: 3 # Releases to keep after a new deployment. See "Pruning old releases".
     # Arrays of directories and files to be shared.
     # The following arrays of directories and files will be symlinked to the current release directory after the 'update-code' step and its callbacks
